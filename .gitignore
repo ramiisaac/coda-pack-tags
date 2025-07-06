@@ -1,0 +1,28 @@
+# Node modules
+node_modules
+
+# Yarn lock file
+yarn.lock
+
+# Dist folder
+dist
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Coda pack
+.coda.json
+.coda-pack.json
+
+# Cursor workspace storage
+.cursorignore
+.cursor-workspace
+
+# Cursor retrieval
+embeddable_files.txt
+
+.DS_Store
+package-lock.json
