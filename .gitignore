@@ -1,28 +1,73 @@
-# Node modules
-node_modules
+# Coda Platform
 
-# Yarn lock file
-yarn.lock
+.coda.json
+.coda-credentials.json
+.coda
 
-# Dist folder
-dist
+# Dependency directories should not be committed
 
-# Environment variables
+node_modules/
+bower_components/
+jspm_packages/
+web_modules/
+
+# Build & Output
+
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+artifacts/
+_upload_build/
+*.tsbuildinfo
+.pnpm_install/
+
+# Logs
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment Variables
+
 .env
 .env.local
-.env.development
-.env.production
+.env.*.local
+.npmrc
 
-# Coda pack
-.coda.json
-.coda-pack.json
-
-# Cursor workspace storage
-.cursorignore
-.cursor-workspace
-
-# Cursor retrieval
-embeddable_files.txt
+# OS & Editor Specific
 
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Framework & Tool Cache
+
+.cache/
+.eslintcache
+.prettiercache
+.parcel-cache
+.next/
+.nuxt/
+.docusaurus/
+.vuepress/
+.serverless/
+.fusebox/
+.turbo/
+
+# Lockfiles
+
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
