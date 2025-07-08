@@ -22,6 +22,7 @@ artifacts/
 _upload_build/
 *.tsbuildinfo
 .pnpm_install/
+pack.js
 
 # Logs
 

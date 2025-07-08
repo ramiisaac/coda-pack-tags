@@ -1,14 +1,18 @@
 {
-  "name": "tbd",
+  "name": "coda-text-tag-extractor",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
+  "description": "A Coda Pack that extracts meaningful tags from text by filtering out common words and noise",
+  "license": "MIT",
+  "author": "ramiisaac",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "pack.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "mocha --require ts-node/register --extensions ts tests/**/*.test.ts",
+    "lint": "eslint pack.ts --ext .ts",
+    "lint:fix": "eslint pack.ts --ext .ts --fix"
   },
+  "keywords": ["coda", "pack", "text", "tags", "nlp", "filter"],
   "dependencies": {
     "@codahq/packs-sdk": "^1.9.9"
   },
