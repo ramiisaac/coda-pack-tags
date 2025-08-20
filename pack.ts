@@ -34,16 +34,16 @@ export const pack = coda.newPack();
  * These categories help users customize which types of words to exclude
  */
 const defaultCommonWords: CommonWordCategories = {
-    numbers: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    prepositions: ["about", "above", "across", "after", "against", "along", "among", "around", "at", "before", "behind", "below", "beneath", "beside", "between", "beyond", "by", "despite", "down", "during", "except", "for", "from", "in", "inside", "into", "near", "of", "off", "on", "out", "outside", "over", "past", "since", "through", "throughout", "to", "toward", "under", "underneath", "until", "up", "upon", "with", "within", "without"],
-    pronouns: ["i", "me", "you", "he", "him", "she", "her", "it", "we", "us", "they", "them", "my", "your", "his", "their", "our", "its", "mine", "yours", "hers", "ours", "theirs", "myself", "yourself", "himself", "herself", "itself", "ourselves", "yourselves", "themselves"],
-    conjunctions: ["and", "but", "or", "nor", "for", "so", "yet", "although", "because", "if", "since", "though", "unless", "until", "while", "when", "whereas", "even though", "even if", "whether", "as", "provided that"],
-    auxiliaryVerbs: ["am", "is", "are", "was", "were", "be", "being", "been", "have", "has", "had", "do", "does", "did", "will", "would", "shall", "should", "can", "could", "may", "might", "must", "ought", "need", "dare"],
-    articles: ["a", "an", "the"],
-    negations: ["not", "no", "nor", "never", "none", "nothing", "neither", "nowhere", "hardly", "barely", "scarcely"],
-    determiners: ["this", "that", "these", "those", "every", "each", "either", "neither", "some", "any", "many", "much", "several", "few", "all", "both", "half", "one", "another", "other", "such", "what", "which", "whose"],
-    adverbs: ["very", "too", "so", "quite", "just", "almost", "already", "also", "enough", "always", "never", "often", "sometimes", "usually", "generally", "perhaps", "maybe", "indeed", "simply", "actually", "really", "hardly", "barely", "scarcely", "completely", "entirely", "perfectly", "absolutely", "totally", "highly", "fully", "deeply", "widely", "mostly", "partly", "greatly", "extremely"],
-    miscellaneous: ["who", "whom", "which", "what", "where", "when", "why", "how", "here", "there", "now", "then", "hence", "thus", "therefore", "moreover", "furthermore", "however", "nevertheless", "nonetheless", "otherwise", "meanwhile", "afterwards", "besides", "anyway", "plus", "next", "finally", "even", "although", "though", "despite", "whereas", "except", "like", "unlike", "such", "as", "including", "especially"]
+  numbers: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+  prepositions: ["about", "above", "across", "after", "against", "along", "among", "around", "at", "before", "behind", "below", "beneath", "beside", "between", "beyond", "by", "despite", "down", "during", "except", "for", "from", "in", "inside", "into", "near", "of", "off", "on", "out", "outside", "over", "past", "since", "through", "throughout", "to", "toward", "under", "underneath", "until", "up", "upon", "with", "within", "without"],
+  pronouns: ["i", "me", "you", "he", "him", "she", "her", "it", "we", "us", "they", "them", "my", "your", "his", "their", "our", "its", "mine", "yours", "hers", "ours", "theirs", "myself", "yourself", "himself", "herself", "itself", "ourselves", "yourselves", "themselves"],
+  conjunctions: ["and", "but", "or", "nor", "for", "so", "yet", "although", "because", "if", "since", "though", "unless", "until", "while", "when", "whereas", "even though", "even if", "whether", "as", "provided that"],
+  auxiliaryVerbs: ["am", "is", "are", "was", "were", "be", "being", "been", "have", "has", "had", "do", "does", "did", "will", "would", "shall", "should", "can", "could", "may", "might", "must", "ought", "need", "dare"],
+  articles: ["a", "an", "the"],
+  negations: ["not", "no", "nor", "never", "none", "nothing", "neither", "nowhere", "hardly", "barely", "scarcely"],
+  determiners: ["this", "that", "these", "those", "every", "each", "either", "neither", "some", "any", "many", "much", "several", "few", "all", "both", "half", "one", "another", "other", "such", "what", "which", "whose"],
+  adverbs: ["very", "too", "so", "quite", "just", "almost", "already", "also", "enough", "always", "never", "often", "sometimes", "usually", "generally", "perhaps", "maybe", "indeed", "simply", "actually", "really", "hardly", "barely", "scarcely", "completely", "entirely", "perfectly", "absolutely", "totally", "highly", "fully", "deeply", "widely", "mostly", "partly", "greatly", "extremely"],
+  miscellaneous: ["who", "whom", "which", "what", "where", "when", "why", "how", "here", "there", "now", "then", "hence", "thus", "therefore", "moreover", "furthermore", "however", "nevertheless", "nonetheless", "otherwise", "meanwhile", "afterwards", "besides", "anyway", "plus", "next", "finally", "even", "although", "though", "despite", "whereas", "except", "like", "unlike", "such", "as", "including", "especially"]
 };
 
 /**
@@ -52,17 +52,17 @@ const defaultCommonWords: CommonWordCategories = {
  * @throws {Error} If input is invalid
  */
 function validateInput(inputText: string): void {
-    if (typeof inputText !== 'string') {
-        throw new Error('Input text must be a string');
-    }
-    
-    if (inputText.trim().length === 0) {
-        throw new Error('Input text cannot be empty');
-    }
-    
-    if (inputText.length > 50000) {
-        throw new Error('Input text is too long (maximum 50,000 characters)');
-    }
+  if (typeof inputText !== 'string') {
+    throw new Error('Input text must be a string');
+  }
+
+  if (inputText.trim().length === 0) {
+    throw new Error('Input text cannot be empty');
+  }
+
+  if (inputText.length > 50000) {
+    throw new Error('Input text is too long (maximum 50,000 characters)');
+  }
 }
 
 /**
@@ -71,12 +71,12 @@ function validateInput(inputText: string): void {
  * @throws {Error} If any category is invalid
  */
 function validateCategories(categories: string[]): void {
-    const validCategories = Object.keys(defaultCommonWords);
-    const invalidCategories = categories.filter(cat => !validCategories.includes(cat));
-    
-    if (invalidCategories.length > 0) {
-        throw new Error(`Invalid categories: ${invalidCategories.join(', ')}. Valid categories are: ${validCategories.join(', ')}`);
-    }
+  const validCategories = Object.keys(defaultCommonWords);
+  const invalidCategories = categories.filter(cat => !validCategories.includes(cat));
+
+  if (invalidCategories.length > 0) {
+    throw new Error(`Invalid categories: ${invalidCategories.join(', ')}. Valid categories are: ${validCategories.join(', ')}`);
+  }
 }
 
 /**
@@ -88,41 +88,41 @@ function validateCategories(categories: string[]): void {
  * @throws {Error} If input validation fails
  */
 function processText(inputText: string, excludeCategories: string[] = [], customExcludes: string[] = []): string[] {
-    try {
-        // Validate input
-        validateInput(inputText);
-        validateCategories(excludeCategories);
-        
-        // Combine categories based on user exclusions
-        const combinedExcludes = new Set(customExcludes.map(word => word.toLowerCase()));
+  try {
+    // Validate input
+    validateInput(inputText);
+    validateCategories(excludeCategories);
 
-        // Add words from selected categories to exclusion set
-        excludeCategories.forEach(category => {
-            if (defaultCommonWords[category as keyof CommonWordCategories]) {
-                defaultCommonWords[category as keyof CommonWordCategories].forEach(word => 
-                    combinedExcludes.add(word.toLowerCase())
-                );
-            }
-        });
+    // Combine categories based on user exclusions
+    const combinedExcludes = new Set(customExcludes.map(word => word.toLowerCase()));
 
-        // Clean and tokenize the input text
-        const cleanedText = inputText.toLowerCase().replace(TEXT_PROCESSING_CONFIG.WORD_SEPARATOR_REGEX, '');
-        const tokens = cleanedText.split(TEXT_PROCESSING_CONFIG.TOKEN_SEPARATOR);
-
-        // Filter out excluded words, short words, and remove duplicates
-        const filteredTokens = tokens.filter(token => 
-            token.length >= TEXT_PROCESSING_CONFIG.MIN_TOKEN_LENGTH && 
-            !combinedExcludes.has(token) &&
-            token.trim() !== ''
+    // Add words from selected categories to exclusion set
+    excludeCategories.forEach(category => {
+      if (defaultCommonWords[category as keyof CommonWordCategories]) {
+        defaultCommonWords[category as keyof CommonWordCategories].forEach(word =>
+          combinedExcludes.add(word.toLowerCase())
         );
-        
-        // Remove duplicates while preserving order
-        const uniqueTags = Array.from(new Set(filteredTokens));
+      }
+    });
 
-        return uniqueTags;
-    } catch (error) {
-        throw new Error(`Text processing failed: ${error instanceof Error ? error.message : String(error)}`);
-    }
+    // Clean and tokenize the input text
+    const cleanedText = inputText.toLowerCase().replace(TEXT_PROCESSING_CONFIG.WORD_SEPARATOR_REGEX, '');
+    const tokens = cleanedText.split(TEXT_PROCESSING_CONFIG.TOKEN_SEPARATOR);
+
+    // Filter out excluded words, short words, and remove duplicates
+    const filteredTokens = tokens.filter(token =>
+      token.length >= TEXT_PROCESSING_CONFIG.MIN_TOKEN_LENGTH &&
+      !combinedExcludes.has(token) &&
+      token.trim() !== ''
+    );
+
+    // Remove duplicates while preserving order
+    const uniqueTags = Array.from(new Set(filteredTokens));
+
+    return uniqueTags;
+  } catch (error) {
+    throw new Error(`Text processing failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
 }
 
 /**
@@ -132,9 +132,9 @@ function processText(inputText: string, excludeCategories: string[] = [], custom
  * @returns Array of filtered tags
  */
 function extractTags(inputText: string, customExcludes: string[] = []): string[] {
-    // Default to excluding common stop words
-    const defaultExcludes = ['articles', 'prepositions', 'pronouns', 'conjunctions', 'auxiliaryVerbs', 'negations', 'determiners'];
-    return processText(inputText, defaultExcludes, customExcludes);
+  // Default to excluding common stop words
+  const defaultExcludes = ['articles', 'prepositions', 'pronouns', 'conjunctions', 'auxiliaryVerbs', 'negations', 'determiners'];
+  return processText(inputText, defaultExcludes, customExcludes);
 }
 
 /**
@@ -144,7 +144,7 @@ function extractTags(inputText: string, customExcludes: string[] = []): string[]
  * @returns Comma-separated string of filtered tags
  */
 function extractTagsAsString(inputText: string, customExcludes: string[] = []): string {
-    return extractTags(inputText, customExcludes).join(TEXT_PROCESSING_CONFIG.OUTPUT_SEPARATOR);
+  return extractTags(inputText, customExcludes).join(TEXT_PROCESSING_CONFIG.OUTPUT_SEPARATOR);
 }
 
 // Add formula to the pack
@@ -185,7 +185,7 @@ pack.addFormula({
       result: "this, is, test",
     },
   ],
-  execute: async function ([text, excludeCategories = [], customExcludes = []], _context) {
+  execute: async function ([text, excludeCategories = [], customExcludes = []]) {
     try {
       const tags = processText(text, excludeCategories, customExcludes);
       return tags.join(TEXT_PROCESSING_CONFIG.OUTPUT_SEPARATOR);
@@ -227,7 +227,7 @@ pack.addFormula({
       result: "this, is, test",
     },
   ],
-  execute: async function ([text, customExcludes = []], _context) {
+  execute: async function ([text, customExcludes = []]) {
     try {
       return extractTagsAsString(text, customExcludes);
     } catch (error) {

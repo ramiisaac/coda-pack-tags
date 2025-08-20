@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Coda Pack that extracts meaningful tags from text by filtering out common words and noise",
   "license": "MIT",
-  "author": "ramiisaac",
+  "author": "Rami Isaac <https://github.com/ramiisaac>",
   "type": "commonjs",
   "main": "pack.js",
   "scripts": {
@@ -12,7 +12,14 @@
     "lint": "eslint pack.ts --ext .ts",
     "lint:fix": "eslint pack.ts --ext .ts --fix"
   },
-  "keywords": ["coda", "pack", "text", "tags", "nlp", "filter"],
+  "keywords": [
+    "coda",
+    "pack",
+    "text",
+    "tags",
+    "nlp",
+    "filter"
+  ],
   "dependencies": {
     "@codahq/packs-sdk": "^1.9.9"
   },
