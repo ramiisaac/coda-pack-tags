@@ -1,5 +1,5 @@
 {
-  "name": "coda_tags",
+  "name": "coda-tags",
   "version": "1.0.0",
   "description": "A Coda Pack that extracts meaningful tags from text by filtering out common words and noise",
   "license": "MIT",
@@ -24,17 +24,16 @@
   "main": "pack.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha",
     "typecheck": "tsc --noEmit",
-    "validate": "coda validate pack.ts",
     "lint": "eslint pack.ts --ext .ts",
     "lint:fix": "eslint pack.ts --ext .ts --fix",
     "format": "prettier --write '*.{ts,tsx,js,jsx,json,md}'",
-    "upload": "coda upload pack.ts",
+    "format:check": "prettier --check '*.{ts,tsx,js,jsx,json,md}'",
+    "test": "mocha",
     "coda:build": "coda build pack.ts",
+    "coda:validate": "coda validate pack.ts",
     "coda:upload": "coda upload pack.ts",
-    "coda:release": "coda release pack.ts",
-    "coda:validate": "coda validate pack.ts"
+    "coda:release": "coda release pack.ts"
   },
   "engines": {
     "node": ">=22.0.0"
