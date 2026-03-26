@@ -1,16 +1,16 @@
 {
-  "name": "coda-text-tag-extractor",
+  "name": "coda_tags",
   "version": "1.0.0",
   "description": "A Coda Pack that extracts meaningful tags from text by filtering out common words and noise",
   "license": "MIT",
-  "author": "Rami Isaac <https://github.com/ramiisaac>",
-  "type": "commonjs",
-  "main": "pack.js",
-  "scripts": {
-    "build": "tsc",
-    "test": "mocha --require ts-node/register --extensions ts tests/**/*.test.ts",
-    "lint": "eslint pack.ts --ext .ts",
-    "lint:fix": "eslint pack.ts --ext .ts --fix"
+  "author": "Rami Isaac <raisaac@icloud.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ramiisaac/coda_tags"
+  },
+  "homepage": "https://github.com/ramiisaac/coda_tags#readme",
+  "bugs": {
+    "url": "https://github.com/ramiisaac/coda_tags/issues"
   },
   "keywords": [
     "coda",
@@ -20,10 +20,26 @@
     "nlp",
     "filter"
   ],
+  "type": "commonjs",
+  "main": "pack.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha",
+    "typecheck": "tsc --noEmit",
+    "validate": "coda validate pack.ts",
+    "lint": "eslint pack.ts --ext .ts",
+    "lint:fix": "eslint pack.ts --ext .ts --fix",
+    "format": "prettier --write '*.{ts,tsx,js,jsx,json,md}'",
+    "upload": "coda upload pack.ts"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
-    "@codahq/packs-sdk": "^1.9.9"
+    "@codahq/packs-sdk": "^1.13.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
     "@types/chai": "^4.3.16",
     "@types/content-disposition": "^0.5.8",
     "@types/jsrsasign": "^10.5.15",
@@ -46,6 +62,8 @@
     "prettier": "^3.5.1",
     "sinon": "^19.0.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
-  }
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@9.12.3"
 }
