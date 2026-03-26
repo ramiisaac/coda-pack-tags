@@ -30,7 +30,11 @@
     "lint": "eslint pack.ts --ext .ts",
     "lint:fix": "eslint pack.ts --ext .ts --fix",
     "format": "prettier --write '*.{ts,tsx,js,jsx,json,md}'",
-    "upload": "coda upload pack.ts"
+    "upload": "coda upload pack.ts",
+    "coda:build": "coda build pack.ts",
+    "coda:upload": "coda upload pack.ts",
+    "coda:release": "coda release pack.ts",
+    "coda:validate": "coda validate pack.ts"
   },
   "engines": {
     "node": ">=22.0.0"
