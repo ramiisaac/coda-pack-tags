@@ -6,7 +6,7 @@ Tags is a Coda pack for extracting meaningful keywords from text by removing sto
 
 * Purpose: Turn freeform text into a cleaned list of tags.
 * Inputs: Text, optional stop-word category exclusions, and optional custom excludes.
-* Outputs: A comma-separated tag string.
+* Outputs: A comma-separated tag string or a tag array.
 * Audience: Coda users building tagging, search, or summarization workflows from raw text.
 
 ## Requirements
@@ -20,7 +20,7 @@ Tags is a Coda pack for extracting meaningful keywords from text by removing sto
 
 1. Install the pack in a Coda doc.
 2. No authentication is required.
-3. Use `ProcessText` or `ExtractTags` in your doc formulas.
+3. Use `ProcessText`, `ExtractTags`, or `ExtractTagsArray` in your doc formulas.
 
 ## Authentication
 
@@ -36,14 +36,15 @@ This pack does not use external authentication.
 | --- | --- | --- | --- | --- |
 | `ProcessText` | Formula | Extracts tags with explicit category and custom exclusions. | `text`, `excludeCategories` optional, `customExcludes` optional | Comma-separated tag string |
 | `ExtractTags` | Formula | Extracts tags with the pack’s default exclusion rules. | `text`, `customExcludes` optional | Comma-separated tag string |
+| `ExtractTagsArray` | Formula | Extracts tags with the pack’s default exclusion rules and returns an array. | `text`, `customExcludes` optional | Array of tags |
 
 ## Example usage
 
 ### Generate tags from a note
 
 1. Add a text column with a paragraph or note.
-2. Call `ExtractTags(thisRow.Note)` or `ProcessText(...)` with custom exclusions.
-3. Store the returned comma-separated tag list in a helper column.
+2. Call `ExtractTags(thisRow.Note)` for a display string or `ExtractTagsArray(thisRow.Note)` for downstream formula use.
+3. Store the returned tags in a helper column or use the array directly in other formulas.
 
 ## Limitations
 
@@ -70,6 +71,10 @@ This pack does not use external authentication.
 
 * Source: https://github.com/ramiisaac/coda_tags
 * Issue tracking: https://github.com/ramiisaac/coda_tags/issues
+
+## License
+
+[MIT](LICENSE). Copyright (c) 2026 Rami Isaac.
 
 ## Author
 

@@ -49,6 +49,16 @@ describe('coda_tags pack', () => {
       expect(result).to.include('test');
     });
 
+    it('should apply custom excludes case-insensitively', async () => {
+      const result = await executeFormulaFromPackDef(
+        pack,
+        'ProcessText',
+        ['JavaScript python TypeScript', [], ['JAVASCRIPT', 'Python']],
+        context
+      );
+      expect(result).to.equal('typescript');
+    });
+
     it('should remove duplicate words while preserving order', async () => {
       const result = await executeFormulaFromPackDef(
         pack,
@@ -98,6 +108,20 @@ describe('coda_tags pack', () => {
         expect.fail('Should have thrown an error');
       } catch (error: any) {
         expect(error.message).to.include('Invalid categories');
+      }
+    });
+
+    it('should list all invalid category names in the error message', async () => {
+      try {
+        await executeFormulaFromPackDef(
+          pack,
+          'ProcessText',
+          ['some text', ['invalidOne', 'invalidTwo']],
+          context
+        );
+        expect.fail('Should have thrown an error');
+      } catch (error: any) {
+        expect(error.message).to.include('invalidOne, invalidTwo');
       }
     });
 
@@ -169,6 +193,22 @@ describe('coda_tags pack', () => {
       expect(result).to.not.include('world');
     });
 
+    it('should filter negations and determiners as part of the default exclusions', async () => {
+      const result = await executeFormulaFromPackDef(
+        pack,
+        'ExtractTags',
+        ['This is not that other plan but a better idea'],
+        context
+      );
+      expect(result).to.not.include('this');
+      expect(result).to.not.include('not');
+      expect(result).to.not.include('that');
+      expect(result).to.not.include('other');
+      expect(result).to.include('plan');
+      expect(result).to.include('better');
+      expect(result).to.include('idea');
+    });
+
     it('should filter out default stop word categories', async () => {
       const result = await executeFormulaFromPackDef(
         pack,
@@ -200,6 +240,28 @@ describe('coda_tags pack', () => {
     });
   });
 
+  describe('ExtractTagsArray formula', () => {
+    it('should return tags as an array', async () => {
+      const result = await executeFormulaFromPackDef(
+        pack,
+        'ExtractTagsArray',
+        ['The quick brown fox jumps over the lazy dog'],
+        context
+      );
+      expect(result).to.deep.equal(['quick', 'brown', 'fox', 'jumps', 'lazy', 'dog']);
+    });
+
+    it('should support custom excludes', async () => {
+      const result = await executeFormulaFromPackDef(
+        pack,
+        'ExtractTagsArray',
+        ['Hello world this is a test', ['hello', 'world']],
+        context
+      );
+      expect(result).to.deep.equal(['test']);
+    });
+  });
+
   describe('Pack formula examples validation', () => {
     for (const formula of pack.formulas ?? []) {
       describe(`${formula.name} examples`, () => {
@@ -214,7 +276,7 @@ describe('coda_tags pack', () => {
           const example = formula.examples[i];
           it(`example ${i + 1}: ${formula.name}(${JSON.stringify(example.params).slice(0, 80)})`, async () => {
             const result = await executeFormulaFromPackDef(pack, formula.name, example.params as any, context);
-            expect(result).to.equal(example.result);
+            expect(result).to.deep.equal(example.result);
           });
         }
       });

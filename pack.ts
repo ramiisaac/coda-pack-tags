@@ -140,11 +140,8 @@ const defaultCommonWords: CommonWordCategories = {
     'while',
     'when',
     'whereas',
-    'even though',
-    'even if',
     'whether',
     'as',
-    'provided that',
   ],
   auxiliaryVerbs: [
     'am',
@@ -481,6 +478,44 @@ pack.addFormula({
   execute: async function ([text, customExcludes = []]) {
     try {
       return extractTagsAsString(text, customExcludes);
+    } catch (error) {
+      throw new coda.UserVisibleError(error instanceof Error ? error.message : String(error));
+    }
+  },
+});
+
+pack.addFormula({
+  name: 'ExtractTagsArray',
+  description:
+    'Extracts meaningful tags from text using intelligent defaults and returns them as an array instead of a comma-separated string.',
+  parameters: [
+    coda.makeParameter({
+      type: coda.ParameterType.String,
+      name: 'text',
+      description: 'The input text to extract tags from.',
+    }),
+    coda.makeParameter({
+      type: coda.ParameterType.StringArray,
+      name: 'customExcludes',
+      description: 'Additional custom words to exclude from the results.',
+      optional: true,
+    }),
+  ],
+  resultType: coda.ValueType.Array,
+  items: { type: coda.ValueType.String },
+  examples: [
+    {
+      params: ['The quick brown fox jumps over the lazy dog'],
+      result: ['quick', 'brown', 'fox', 'jumps', 'lazy', 'dog'],
+    },
+    {
+      params: ['Hello world this is a test', ['hello', 'world']],
+      result: ['test'],
+    },
+  ],
+  execute: async function ([text, customExcludes = []]) {
+    try {
+      return extractTags(text, customExcludes);
     } catch (error) {
       throw new coda.UserVisibleError(error instanceof Error ? error.message : String(error));
     }
