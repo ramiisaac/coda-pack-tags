@@ -34,7 +34,7 @@
     "coda:build": "coda build pack.ts",
     "coda:validate": "coda validate pack.ts",
     "coda:upload": "coda upload pack.ts",
-    "coda:release": "coda release pack.ts"
+    "coda:release": "coda release pack.ts 9 -n \"Portfolio polish and release\""
   },
   "engines": {
     "node": ">=22.0.0"
