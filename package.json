@@ -24,17 +24,17 @@
   "type": "commonjs",
   "main": "pack.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "pnpm run coda:build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint pack.ts --ext .ts",
-    "lint:fix": "eslint pack.ts --ext .ts --fix",
-    "format": "prettier --write '*.{ts,tsx,js,jsx,json,md}'",
-    "format:check": "prettier --check '*.{ts,tsx,js,jsx,json,md}'",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "mocha",
     "coda:build": "coda build pack.ts",
     "coda:validate": "coda validate pack.ts",
     "coda:upload": "coda upload pack.ts",
-    "coda:release": "coda release pack.ts 9 -n \"Portfolio polish and release\""
+    "coda:release": "coda release pack.ts"
   },
   "engines": {
     "node": ">=22.0.0"
