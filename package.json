@@ -1,6 +1,6 @@
 {
   "name": "coda-tags",
-  "version": "1.0.0",
+  "version": "9.0.0",
   "description": "A Coda Pack that extracts meaningful tags from text by filtering out common words and noise",
   "license": "MIT",
   "author": "Rami Isaac <raisaac@icloud.com>",
