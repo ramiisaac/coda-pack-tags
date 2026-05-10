@@ -1,16 +1,16 @@
 {
-  "name": "coda-tags",
+  "name": "coda-pack-tags",
   "version": "9.0.0",
   "description": "A Coda Pack that extracts meaningful tags from text by filtering out common words and noise",
   "license": "MIT",
   "author": "Rami Isaac <raisaac@icloud.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ramiisaac/coda_tags"
+    "url": "https://github.com/ramiisaac/coda-pack-tags.git"
   },
-  "homepage": "https://github.com/ramiisaac/coda_tags#readme",
+  "homepage": "https://github.com/ramiisaac/coda-pack-tags#readme",
   "bugs": {
-    "url": "https://github.com/ramiisaac/coda_tags/issues"
+    "url": "https://github.com/ramiisaac/coda-pack-tags/issues"
   },
   "keywords": [
     "coda",
